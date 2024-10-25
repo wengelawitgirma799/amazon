@@ -9,8 +9,8 @@ import { Type } from '../../Utility/action.type';
 import {IoIosArrowDown} from 'react-icons/io';
 import {IoIosArrowUp} from 'react-icons/io';
 function Cart() {
-  const { state, dispatch } = useContext(DataContext);  // Correct access to state
-  const { basket, user } = state;  // Destructure basket and user from state
+  const [{user,basket}, dispatch ]= useContext(DataContext);  // Correct access to state
+  //const { basket, user } = state;  // Destructure basket and user from state
 
   // Calculate the total price of items in the basket
   const total = basket.reduce((amount, item) => item.price * item.amount + amount, 0);

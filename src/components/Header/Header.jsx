@@ -9,8 +9,9 @@ import { DataContext } from "../../components/DataProvider/DataProvider";
 import { auth } from "../../Utility/firebase";
 
 const Header = () => {
-  const { state, dispatch } = useContext(DataContext) || {}; // Fallback to empty object
-const { user, basket } = state || { user: null, basket: [] }; // Fallback to default values
+  const [ {user,basket}, dispatch ]= useContext(DataContext) 
+  //|| {}; // Fallback to empty object
+//const { user, basket } = state || { user: null, basket: [] }; // Fallback to default values
 
   const totalItem = basket?.reduce((amount, item) => {
     return item.amount + amount;

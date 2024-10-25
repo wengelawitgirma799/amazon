@@ -17,7 +17,7 @@ function ProductCard({
   const { image, title, id, rating, price, description } = product;
 
   // Correctly use the context with object destructuring
-  const { state, dispatch } = useContext(DataContext);
+  const [{user,basket}, dispatch ] = useContext(DataContext);
   const [selectedSize, setSelectedSize] = useState("medium");
 
   const addToCart = () => {

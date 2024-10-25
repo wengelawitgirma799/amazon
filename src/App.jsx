@@ -9,7 +9,7 @@ function App() {
   //taking user from context
   //we should update the global state using dispatch
   //const [{ user }, dispatch] = useContext(DataContext);
-  const { state: { user }, dispatch } = useContext(DataContext);
+  const [{ user }, dispatch ] = useContext(DataContext);
 
   useEffect(() => {
     auth.onAuthStateChanged((authUser) => {
