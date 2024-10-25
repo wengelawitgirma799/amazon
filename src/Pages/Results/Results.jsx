@@ -4,7 +4,7 @@ import LayOut from "../../components/Layout/LayOut";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { productUrl } from "../../Api/endpoints";
-import Loader from "../../Components/Loader/Loder";
+import Loader from "../../components/Loader/Loder";
 import ProductCard from "../../components/Product/ProductCard";
 function Results() {
   const [results, setResults] = useState([]);
