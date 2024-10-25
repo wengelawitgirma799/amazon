@@ -6,7 +6,8 @@ import { DataContext } from "../DataProvider/DataProvider";
 const ProtectedRoute = ({ children, msg, redirect }) => {
   const navigate = useNavigate();
   //we only need user from the state
-  const [{ user }, dispatch] = useContext(DataContext);
+  //const [{ user }, dispatch] = useContext(DataContext);
+  const { state: { user }, dispatch } = useContext(DataContext);
 
   useEffect(() => {
     if (!user) {

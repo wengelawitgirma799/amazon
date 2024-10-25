@@ -9,7 +9,7 @@ import { axiosInstance } from "../../Api/axios";
 import { ClipLoader } from "react-spinners";
 import { db } from "../../Utility/firebase";
 import { useNavigate } from "react-router-dom";
-//import { Type } from "../../Utility/action.type";
+import { Type } from "../../Utility/action.type";
 
 function Payment() {
   const [{ user, basket }, dispatch] = useContext(DataContext);
@@ -36,7 +36,7 @@ function Payment() {
   };
 
   const handlePayment = async (e) => {
-      e.preventDefault();
+    e.preventDefault();
 
     try {
       setProcessing(true);
@@ -80,7 +80,7 @@ function Payment() {
       console.log(error);
       setProcessing(false);
     }
-   };
+  };
 
   return (
     <LayOut>

@@ -14,12 +14,12 @@ function ProductCard({
   showSize,
   showButtons,
 }) {
-  const { image, title, id, rating, price, description, size } = product;
+  const { image, title, id, rating, price, description } = product;
 
-  const [state, dispatch] = useContext(DataContext);
+  // Correctly use the context with object destructuring
+  const { state, dispatch } = useContext(DataContext);
   const [selectedSize, setSelectedSize] = useState("medium");
 
-  //the add to cart consists of what to dispatch it contain the type AND ITEM
   const addToCart = () => {
     dispatch({
       type: Type.ADD_TO_BASKET,
@@ -30,7 +30,6 @@ function ProductCard({
         rating,
         price,
         description,
-        selectedSize,
         size: selectedSize,
       },
     });
@@ -49,13 +48,10 @@ function ProductCard({
         <h3>{title}</h3>
         {renderDesc && <div style={{ maxWidth: "750px" }}>{description}</div>}
         <div className={classes.rating}>
-          {/* rating */}
           <Rating value={rating?.rate} precision={0.1} />
-          {/*count  */}
           <small>{rating?.count}</small>
         </div>
         <div>
-          {/* price */}
           <CurrencyFormat amount={price} />
         </div>
         {showButtons && (
@@ -78,17 +74,15 @@ function ProductCard({
             >
               L
             </button>
-            <p>Size: {size ? size : selectedSize}</p>
+            <p>Size: {selectedSize}</p>
           </div>
         )}
-
-        {showSize && <p>Size: {size ? size : selectedSize}</p>}
+        {showSize && <p>Size: {selectedSize}</p>}
         {renderAdd && (
           <div>
             <button
               className={`${classes.button} ${classes.addToCartButton}`}
               onClick={addToCart}
-              //add to cart function is called when button is clicked
             >
               Add to Cart
             </button>
