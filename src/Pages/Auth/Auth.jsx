@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import classes from "./SignUp.module.css";
+import classes from "./Signup.module.css";
 //uselocation to take every props from navigate
 //to get the state we gave to usenavigate
 import { Link, useNavigate, useLocation } from "react-router-dom";
